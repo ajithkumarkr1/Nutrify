@@ -21,9 +21,10 @@
     "hbs": "^4.1.1",
     "mongoose": "^5.11.9",
     "node-fetch": "^2.6.1",
-    "nodemon": "^2.0.7",
     "password-hash": "^1.2.2",
     "sqlite3": "^5.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }

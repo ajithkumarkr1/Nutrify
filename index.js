@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const port = process.env.PORT || 5000
 const path = require('path');
 const hbs = require('hbs');
 const bodyParser = require('body-parser');
@@ -11,6 +12,8 @@ const dashboardRouter = require('./routes/dashboard');
 const mealRouter = require('./routes/meals')
 const fetchRouter = require('./routes/fetch')
 const updateProfileRouter = require('./routes/updateProfile');
+
+//const app = express()
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -91,6 +94,7 @@ app.get('/logout',(req,res)=>{
 // Admin Routes
 
 const adminUserRouter = require('./routes/adminUser');
+const { __express } = require('hbs');
 
 app.use('/api/adminUser',adminUserRouter);
 
@@ -148,11 +152,11 @@ app.get('/*',(req,res)=>{
     res.redirect('/signup');
 });
 
-app.listen(3000,(error)=>{
+app.listen(port,(error)=>{
     if(error){
         console.log("Error : ", error);
     }
     else{
-        console.log("Listening to port 3000");
+        console.log(`Listening to port ${port}`);
     }
 });
